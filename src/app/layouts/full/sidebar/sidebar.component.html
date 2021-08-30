@@ -1,0 +1,30 @@
+<!-- ============================================================== -->
+<!-- sidebar -->
+<!-- ============================================================== -->
+<mat-nav-list appAccordion>
+  <mat-list-item
+    appAccordionLink
+    *ngFor="let menuitem of menuItems.getMenuitem()"
+    routerLinkActive="selected"
+    group="{{ menuitem.state }}"
+  >
+    <a
+      class=""
+      appAccordionToggle
+      [routerLink]="['/', menuitem.state]"
+      *ngIf="menuitem.type === 'link'"
+    >
+      <!-- <mat-icon><a target="_blank" href="http://sirasatv.lk/">
+        <img width="100px" height="100px" class="img-responsive" src="https://www.newsfirst.lk/wp-content/themes/nfst-eng-theme/assets/dist/images/brands-logo/sirasa-tv-new.jpg" alt="Sirasa TV Sri Lanka">
+        </a></mat-icon> -->
+        
+      <span align="center">Dashboard News First</span>
+      <span fxFlex></span>
+      <span
+        class="label label-{{ badge.type }}"
+        *ngFor="let badge of menuitem.badge"
+        >{{ blog.title.rendered }}
+      </span>
+    </a> 
+  </mat-list-item>
+</mat-nav-list>

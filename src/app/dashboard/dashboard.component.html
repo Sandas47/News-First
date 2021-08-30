@@ -1,0 +1,50 @@
+<div fxFlex.gt-lg="99" fxFlex.gt-md="99" fxFlex.gt-xs="100" fxFlex="100">
+  <mat-card>
+    <!-- <marquee width="100%" direction="right" height="100px">
+      We Report You Decide
+      </marquee> -->
+    <mat-tab-group> 
+      <mat-tab label=""> 
+        <mat-card-content>
+          <div
+            class="d-flex no-blcok"
+            *ngFor="let blog of blogData"
+            id="showFristBlog"
+          >
+            <div class="p-b-20 b-b m-b-30">
+             
+              <a
+                [routerLink]="['/single-view', combineSlug(blog.slug, blog.id)]"
+              >
+                <div class="display-card">
+                  <h2 color="headingtext" align="center">{{ blog.title.rendered }}</h2><br>
+
+                  <div fxLayout="row wrap">
+                    <div fxFlex.gt-md="40" class="mb-4" fxFlex="100"  >
+                      <img 
+                        class="img-responsive rounded"
+                        width="400"
+                        src="{{ blog.images.mini_tile_image }}"
+                        alt=""  
+                      />
+                    </div>
+                  </div>
+
+                  <p [innerHTML]="blog.content.rendered"></p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="row mb-3 mt-3">
+            <div class="col-6">
+              <button (click)="previous()">Previous</button>
+            </div>
+            <div class="col-6">
+              <button (click)="next()">Next</button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>
